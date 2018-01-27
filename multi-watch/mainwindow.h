@@ -2,27 +2,30 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "settingmanager.h"
+#include <QDebug>
+#include <QSettings>
+
+class DigitalClock;
+class SettingManager;
 
 namespace Ui {
-class MainWindow;
+  class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-    SettingManager *settingM;
+  Ui::MainWindow *ui;
+  SettingManager *settingM;
 
-    QString settingsFilePath;
-    void saveTabState();
-    void loadTabState();
+  // VARIABLES
+  DigitalClock *clock;
+
 };
 
 #endif // MAINWINDOW_H

@@ -26,12 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    settingmanager.cpp
-
+    settingmanager.cpp \
+    utils.cpp \
+    digitalclock.cpp
 
 HEADERS += \
         mainwindow.h \
-    settingmanager.h
+    settingmanager.h \
+    utils.h \
+    digitalclock.h
 
 FORMS += \
         mainwindow.ui
