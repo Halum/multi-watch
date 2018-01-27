@@ -2,10 +2,10 @@
 #define SETTINGMANAGER_H
 
 #include <QObject>
-#include <QTabWidget>
-#include <QSettings>
 
+class QTabWidget;
 class QSettings;
+
 class SettingManager
 {
 public:

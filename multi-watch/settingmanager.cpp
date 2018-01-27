@@ -1,4 +1,6 @@
 #include "settingmanager.h"
+#include <QTabWidget>
+#include <QSettings>
 
 SettingManager::SettingManager() {
   this->settingFileName = "multiWatchSetting";
