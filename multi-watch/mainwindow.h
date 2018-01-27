@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QDebug>
-#include <QSettings>
 
 class DigitalClock;
 class SettingManager;
@@ -21,11 +19,10 @@ public:
 
 private:
   Ui::MainWindow *ui;
-  SettingManager *settingM;
 
   // VARIABLES
   DigitalClock *clock;
-
+  SettingManager *settingManager;
 };
 
 #endif // MAINWINDOW_H

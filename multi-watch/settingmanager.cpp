@@ -1,41 +1,35 @@
 #include "settingmanager.h"
 
-SettingManager::SettingManager()
-{
-
+SettingManager::SettingManager() {
+  this->settingFileName = "multiWatchSetting";
+  this->applicationName = "multiWatch";
+  this->tabSettingKey = "TabOrder";
 }
 
-void SettingManager::saveTabOrder(QTabWidget *tabWidget)
-{
-  QSettings settings("multiWatchSetting", "multiWatch");
-  int nTab = tabWidget->count();
+void SettingManager::saveTabOrder(QTabWidget *tabWidget) {
+  QSettings settings(this->settingFileName, this->applicationName);
+  int numberOfTab = tabWidget->count();
   QString tabOrderTxt = "";
-  int i;
+  //this additional line added to avoid unnecessary chararcter in string
   tabOrderTxt.append(tabWidget->tabText(0));
-  for(i = 1; i< nTab; i++){
+  for(int i = 1; i< numberOfTab; i++){
       tabOrderTxt.append("_");
       tabOrderTxt.append(tabWidget->tabText(i));
     }
-  qDebug() << "saving "<< tabOrderTxt;
-  settings.setValue("TabOrder", tabOrderTxt);
+  settings.setValue(this->tabSettingKey, tabOrderTxt);
 }
 
-void SettingManager::loadTabOrder(QTabWidget *tabWidget)
-{
+void SettingManager::loadTabOrder(QTabWidget *tabWidget) {
   QRegExp qr("_");
-
-  QSettings settings("multiWatchSetting", "multiWatch");
-  QString tabOrderTxt = settings.value("TabOrder", "").toString();
+  QSettings settings(this->settingFileName, this->applicationName);
+  QString tabOrderTxt = settings.value(this->tabSettingKey, "").toString();
   QStringList qs = tabOrderTxt.split(qr);
-  qDebug() << "loading "<< tabOrderTxt;
   if(tabOrderTxt == "")
     return;
-  int i,j;
-  int nTab = qs.size();
-  for(i=0; i<nTab; i++){
-      qDebug() << qs[i];
-      for(j = 0; j< nTab; j++){
-          if(tabWidget->tabText(j) == qs[i]){
+  int numberOfTab = qs.size();
+  for(int i=0; i<numberOfTab; i++){
+      for(int j = i; j < numberOfTab; j++){
+          if(tabWidget->tabText(j) == qs[i] && j != i){
               QWidget *tab1 = tabWidget->widget(j);
               QString str = tabWidget->tabText(j);
               tabWidget->removeTab(j);

@@ -4,10 +4,7 @@
 #include <QObject>
 #include <QTabWidget>
 #include <QSettings>
-#include <QApplication>
-#include <QDebug>
 
-class QApplication;
 class QSettings;
 class SettingManager
 {
@@ -17,7 +14,10 @@ public:
   void loadTabOrder(QTabWidget *tabWidget);
 
 private:
-  QString settingsPath;
+  QString settingFileName;
+  QString applicationName;
+
+  QString tabSettingKey;
 };
 
 #endif // SETTINGMANAGER_H

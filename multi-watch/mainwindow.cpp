@@ -8,15 +8,15 @@ MainWindow::MainWindow(QWidget *parent) :
   ui(new Ui::MainWindow) {
   ui->setupUi(this);
   this->clock = new DigitalClock(this);
-  clock->init(this->ui->digitalClock);
+  this->clock->init(this->ui->digitalClock);
 
-  settingM = new SettingManager();
-  settingM->loadTabOrder(ui->tabWidget);
+  this->settingManager = new SettingManager();
+  this->settingManager->loadTabOrder(ui->tabWidget);
   ui->tabWidget->setCurrentIndex(0);
 }
 
 MainWindow::~MainWindow()
 {
-  settingM->saveTabOrder(ui->tabWidget);
+  this->settingManager->saveTabOrder(ui->tabWidget);
   delete ui;
 }
