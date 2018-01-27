@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "settingmanager.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    SettingManager *settingM;
+
+    QString settingsFilePath;
+    void saveTabState();
+    void loadTabState();
 };
 
 #endif // MAINWINDOW_H
