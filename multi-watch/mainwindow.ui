@@ -23,7 +23,7 @@
       <property name="movable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="clockTab">
        <attribute name="title">
         <string>Clock</string>
        </attribute>
@@ -49,17 +49,17 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="QWidget" name="alarmTab">
        <attribute name="title">
         <string>Alarm</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="tab_3">
+      <widget class="QWidget" name="timerTab">
        <attribute name="title">
         <string>Timer</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="tab_4">
+      <widget class="QWidget" name="stopTab">
        <attribute name="title">
         <string>StopWatch</string>
        </attribute>
