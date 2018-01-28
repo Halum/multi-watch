@@ -29,21 +29,17 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLCDNumber" name="digitalClock">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
+         <widget class="QLabel" name="digitalClock">
+          <property name="font">
+           <font>
+            <pointsize>28</pointsize>
+           </font>
           </property>
-          <property name="frameShape">
-           <enum>QFrame::NoFrame</enum>
+          <property name="text">
+           <string>TextLabel</string>
           </property>
-          <property name="digitCount">
-           <number>8</number>
-          </property>
-          <property name="segmentStyle">
-           <enum>QLCDNumber::Filled</enum>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -53,6 +49,7 @@
        <attribute name="title">
         <string>Alarm</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2"/>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
@@ -74,7 +71,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

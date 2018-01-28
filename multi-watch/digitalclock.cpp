@@ -1,10 +1,11 @@
 #include "digitalclock.h"
 #include "utils.h"
 
-#include <QLCDNumber>
+#include <QLabel>
 #include <QString>
 #include <QTimer>
 #include <QTime>
+#include <QPushButton>
 
 DigitalClock::DigitalClock(QObject *parent) : QObject(parent) {
 
@@ -12,8 +13,8 @@ DigitalClock::DigitalClock(QObject *parent) : QObject(parent) {
 
 DigitalClock::~DigitalClock() {}
 
-void DigitalClock::init(QLCDNumber *lcdPanel) {
-  this->lcdPanel = lcdPanel;
+void DigitalClock::init(QLabel *timeLabel) {
+  this->timeLabel = timeLabel;
   QTimer *timer = new QTimer(this);
   connect(timer, &QTimer::timeout,
           this, DigitalClock::showTime);
@@ -27,5 +28,5 @@ void DigitalClock::showTime() {
   if ((currentTime.second() % 2)) {
           timeString[5] = ' ';
     }
-  this->lcdPanel->display(timeString);
+  this->timeLabel->setText(timeString);
 }
