@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 class DigitalClock;
+class SettingManager;
 
 namespace Ui {
   class MainWindow;
@@ -18,8 +19,10 @@ public:
 
 private:
   Ui::MainWindow *ui;
+
   // VARIABLES
   DigitalClock *clock;
+  SettingManager *settingManager;
 };
 
 #endif // MAINWINDOW_H
