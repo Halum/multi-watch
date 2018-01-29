@@ -7,7 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
   ui(new Ui::MainWindow) {
   ui->setupUi(this);
   this->clock = new DigitalClock(this);
-  clock->init(this->ui->digitalClock);
+  ui->changeTimeFormatBtn->setCheckable(true);
+  clock->init(this->ui->digitalClock, ui->changeTimeFormatBtn);
 }
 
 MainWindow::~MainWindow()

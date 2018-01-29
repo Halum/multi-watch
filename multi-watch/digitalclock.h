@@ -12,17 +12,20 @@ public:
   explicit DigitalClock(QObject *parent = nullptr);
   ~DigitalClock();
 
-public slots:
+private slots:
   void showTime();
+  void changeTimeFormat();
 
 public:
   // METHODS
-  void init(QLabel *timeLabel);
+  void init(QLabel *timeLabel, QPushButton *changeFormatBtn);
 
 private:
   // METHODS
   // VARIABLES
   QLabel *timeLabel;
+  QPushButton *timeFormatButton;
+  bool show24HourFormat;
 };
 
 #endif // DIGITALCLOCK_H

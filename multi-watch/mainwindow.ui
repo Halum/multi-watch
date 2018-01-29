@@ -43,6 +43,13 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="changeTimeFormatBtn">
+          <property name="text">
+           <string>Toggle Format</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
