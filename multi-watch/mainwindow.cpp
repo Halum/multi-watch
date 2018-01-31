@@ -7,8 +7,10 @@ MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow) {
   ui->setupUi(this);
+  ui->changeTimeFormatBtn->setCheckable(true);
+
   this->clock = new DigitalClock(this);
-  this->clock->init(this->ui->digitalClock);
+  clock->init(this->ui->digitalClock, ui->changeTimeFormatBtn);
 
   this->settingManager = new SettingManager();
   this->settingManager->loadTabOrder(ui->tabWidget);
@@ -20,3 +22,4 @@ MainWindow::~MainWindow()
   this->settingManager->saveTabOrder(ui->tabWidget);
   delete ui;
 }
+

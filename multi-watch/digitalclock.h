@@ -2,10 +2,9 @@
 #define DIGITALCLOCK_H
 
 #include <QObject>
-
 // Forward declaration
-class QLCDNumber;
-
+class QLabel;
+class QPushButton;
 class DigitalClock : public QObject
 {
   Q_OBJECT
@@ -13,17 +12,20 @@ public:
   explicit DigitalClock(QObject *parent = nullptr);
   ~DigitalClock();
 
-public slots:
+private slots:
   void showTime();
+  void changeTimeFormat();
 
 public:
   // METHODS
-  void init(QLCDNumber *lcdPanel);
+  void init(QLabel *timeLabel, QPushButton *changeFormatBtn);
 
 private:
   // METHODS
   // VARIABLES
-  QLCDNumber *lcdPanel;
+  QLabel *timeLabel;
+  QPushButton *timeFormatButton;
+  bool show24HourFormat;
 };
 
 #endif // DIGITALCLOCK_H
