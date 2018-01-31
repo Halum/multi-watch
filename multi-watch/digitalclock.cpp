@@ -20,7 +20,7 @@ void DigitalClock::init(QLabel *timeLabel, QPushButton *changeFormatBtn) {
   QTimer *timer = new QTimer(this);
   connect(timer, &QTimer::timeout,
           this, &DigitalClock::showTime);
-  timer->start(500);
+  timer->start();
   showTime();
   this->show24HourFormat = true;
   this->timeFormatButton = changeFormatBtn;

@@ -20,6 +20,8 @@ public:
 private:
   Ui::MainWindow *ui;
 
+  void disableTabsForRelease();
+
   // VARIABLES
   DigitalClock *clock;
   SettingManager *settingManager;
