@@ -15,6 +15,14 @@ MainWindow::MainWindow(QWidget *parent) :
   this->settingManager = new SettingManager();
   this->settingManager->loadTabOrder(ui->tabWidget);
   ui->tabWidget->setCurrentIndex(0);
+
+  this->disableTabsForRelease();
+}
+
+void MainWindow::disableTabsForRelease(){
+  this->ui->tabWidget->setTabEnabled(1, false);
+  this->ui->tabWidget->setTabEnabled(2, false);
+  this->ui->tabWidget->setTabEnabled(3, false);
 }
 
 MainWindow::~MainWindow()
