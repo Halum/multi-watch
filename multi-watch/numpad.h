@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+class QPushButton;
+
 namespace Ui {
   class Numpad;
 }
@@ -15,7 +17,17 @@ public:
   explicit Numpad(QWidget *parent = 0);
   ~Numpad();
 
+signals:
+  void numberPressed(int num);
+  void numberCleared();
+  void numberDeleted();
+
+
 private:
+  // METHODS
+  void setupSignals();
+  void connectNumberedButton(QPushButton *button, int signalValue);
+  // VARIABLES
   Ui::Numpad *ui;
 };
 
