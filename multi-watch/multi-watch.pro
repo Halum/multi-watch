@@ -28,15 +28,18 @@ SOURCES += \
     mainwindow.cpp \
     settingmanager.cpp \
     utils.cpp \
-    digitalclock.cpp
+    digitalclock.cpp \
+    numpad.cpp
 
 HEADERS += \
     mainwindow.h \
     settingmanager.h \
     utils.h \
-    digitalclock.h
+    digitalclock.h \
+    numpad.h
 
 FORMS += \
-        mainwindow.ui
+    mainwindow.ui \
+    numpad.ui
 
 RC_FILE += multi-watch.rc

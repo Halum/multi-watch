@@ -5,6 +5,7 @@
 
 class DigitalClock;
 class SettingManager;
+class Numpad;
 
 namespace Ui {
   class MainWindow;
@@ -17,14 +18,18 @@ public:
   explicit MainWindow(QWidget *parent = 0);
   ~MainWindow();
 
-private:
-  Ui::MainWindow *ui;
+private slots:
+  void input(int num);
 
+private:
+  // METHODS
   void disableTabsForRelease();
 
   // VARIABLES
+  Ui::MainWindow *ui;
   DigitalClock *clock;
   SettingManager *settingManager;
+  Numpad *numpad;
 };
 
 #endif // MAINWINDOW_H
