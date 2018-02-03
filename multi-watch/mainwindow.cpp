@@ -2,9 +2,7 @@
 #include "ui_mainwindow.h"
 #include "digitalclock.h"
 #include "settingmanager.h"
-#include "numpad.h"
-
-#include <QDebug>
+#include "timer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -12,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->setupUi(this);
   ui->changeTimeFormatBtn->setCheckable(true);
 
-  this->numpad = new Numpad(parent);
-  this->ui->timerTab->layout()->addWidget(this->numpad);
+  this->timer = new Timer(parent);
+  this->ui->timerTab->layout()->addWidget(this->timer);
 
   this->clock = new DigitalClock(this);
   clock->init(this->ui->digitalClock, ui->changeTimeFormatBtn);
@@ -22,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
   this->settingManager->loadTabOrder(ui->tabWidget);
 
   this->disableTabsForRelease();
-
-  connect(this->numpad, &Numpad::numberPressed,
-          this, &MainWindow::input);
 }
 
 void MainWindow::disableTabsForRelease(){
@@ -37,10 +32,5 @@ MainWindow::~MainWindow()
 {
   this->settingManager->saveTabOrder(ui->tabWidget);
   delete ui;
-}
-
-// this is a demo method to show that numpad works
-void MainWindow::input(int num) {
-  qDebug() << num;
 }
 
