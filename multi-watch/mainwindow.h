@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSystemTrayIcon>
 
 class DigitalClock;
 class SettingManager;
@@ -20,16 +21,24 @@ public:
 
 private slots:
   void input(int num);
+   void iconActivated(QSystemTrayIcon::ActivationReason reason);
+
+   void on_trayEnabled_clicked();
 
 private:
   // METHODS
   void disableTabsForRelease();
+  void closeEvent(QCloseEvent *event);
+  void addTrayIcon();
 
   // VARIABLES
   Ui::MainWindow *ui;
   DigitalClock *clock;
   SettingManager *settingManager;
   Numpad *numpad;
+
+  QSystemTrayIcon *trayIcon;
+  bool enableTray;
 };
 
 #endif // MAINWINDOW_H

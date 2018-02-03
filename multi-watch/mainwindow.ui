@@ -124,6 +124,13 @@
           </item>
          </layout>
         </item>
+        <item>
+         <widget class="QPushButton" name="trayEnabled">
+          <property name="text">
+           <string>quit?</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="stopTab">
@@ -145,7 +152,7 @@
      <x>0</x>
      <y>0</y>
      <width>456</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
