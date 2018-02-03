@@ -29,17 +29,20 @@ SOURCES += \
     settingmanager.cpp \
     utils.cpp \
     digitalclock.cpp \
-    numpad.cpp
+    numpad.cpp \
+    timer.cpp
 
 HEADERS += \
     mainwindow.h \
     settingmanager.h \
     utils.h \
     digitalclock.h \
-    numpad.h
+    numpad.h \
+    timer.h
 
 FORMS += \
     mainwindow.ui \
-    numpad.ui
+    numpad.ui \
+    timer.ui
 
 RC_FILE += multi-watch.rc
