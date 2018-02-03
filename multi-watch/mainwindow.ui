@@ -71,60 +71,7 @@
        <attribute name="title">
         <string>Timer</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QLabel" name="hourCount">
-            <property name="font">
-             <font>
-              <pointsize>25</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>00:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="minuteCount">
-            <property name="font">
-             <font>
-              <pointsize>25</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>00:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="secondCount">
-            <property name="font">
-             <font>
-              <pointsize>25</pointsize>
-              <weight>75</weight>
-              <italic>false</italic>
-              <bold>true</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>00</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_3"/>
       </widget>
       <widget class="QWidget" name="stopTab">
        <property name="enabled">
