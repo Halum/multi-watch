@@ -4,6 +4,8 @@
 #include "settingmanager.h"
 #include "timer.h"
 
+#include <QCloseEvent>
+
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow) {
@@ -20,12 +22,55 @@ MainWindow::MainWindow(QWidget *parent) :
   this->settingManager->loadTabOrder(ui->tabWidget);
 
   this->disableTabsForRelease();
+  this->addTrayIcon();
+}
+
+
+void MainWindow::closeEvent(QCloseEvent *event){
+   if(this->isVisible()){
+       event->ignore();
+       this->hide();
+     }
+}
+
+void MainWindow::addTrayIcon(){
+  this->trayIcon = new QSystemTrayIcon(this);
+  this->trayIcon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
+  this->trayIcon->setToolTip("Multi-Watch");
+
+  QMenu *trayMenu = new QMenu(this);
+  QAction *closeApp = new QAction("Close Application",this);
+  connect(closeApp, &QAction::triggered, this, &this->close);
+
+  trayMenu->addAction(closeApp);
+
+  this->trayIcon->setContextMenu(trayMenu);
+  this->trayIcon->show();
+
+  connect(this->trayIcon, &QSystemTrayIcon::activated, this, &this->iconActivated);
+}
+
+void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason){
+  switch (reason) {
+    case QSystemTrayIcon::DoubleClick:
+      if(!this->isVisible()){
+          this->show();
+      } else {
+          this->hide();
+      }
+      break;
+    default:
+      break;
+    }
 }
 
 void MainWindow::disableTabsForRelease(){
-  this->ui->tabWidget->setTabEnabled(1, false);
-//  this->ui->tabWidget->setTabEnabled(2, false);
-  this->ui->tabWidget->setTabEnabled(3, false);
+  for(int i=0; i<4; i++){
+      if(this->ui->tabWidget->tabText(i) == "Alarm" || this->ui->tabWidget->tabText(i) == "StopWatch")
+      {
+          this->ui->tabWidget->setTabEnabled(i, false);
+      }
+    }
 }
 
 MainWindow::~MainWindow()
