@@ -5,6 +5,7 @@
 
 #include <QDebug>
 #include <QFont>
+#include <QChar>
 
 
 Timer::Timer(QWidget *parent) :
@@ -33,6 +34,19 @@ Timer::~Timer() {
 
 void Timer::numInput(int num) {
   qDebug() << num;
+  if(this->selectedLabel) {
+      QString text = this->selectedLabel->text();
+      QChar delimiter = ' ';
+      if(text.length() > 2) {
+          delimiter = text.back();
+          text.chop(1);
+      }
+
+      text.remove(0, 1);
+
+      text.append(QString::number(num)).append(delimiter);
+      this->selectedLabel->setText(text);
+    }
 }
 
 void Timer::numCleared() {
@@ -52,8 +66,8 @@ void Timer::setupLabelConnection() {
           this, &Timer::watchCounterSelected);
 }
 
-void Timer::watchCounterSelected() {
-  qDebug() << "clicked";
+void Timer::watchCounterSelected(ClickableLabel *label) {
+  this->selectedLabel = label;
 }
 
 void Timer::setupWatchFont(ClickableLabel *label, QString defalutVal) {

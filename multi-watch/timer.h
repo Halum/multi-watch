@@ -23,7 +23,7 @@ private slots:
   void numInput(int num);
   void numCleared();
   void numDeleted();
-  void watchCounterSelected();
+  void watchCounterSelected(ClickableLabel *label);
 
 private:
   // METHODS
@@ -33,9 +33,11 @@ private:
   // VARIABLES
   Ui::Timer *ui;
   Numpad *numpad;
+
   ClickableLabel *hourCount;
   ClickableLabel *minuteCount;
   ClickableLabel *secondCount;
+  ClickableLabel *selectedLabel = Q_NULLPTR;
 };
 
 #endif // TIMER_H
