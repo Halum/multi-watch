@@ -11,8 +11,7 @@ Numpad::Numpad(QWidget *parent) :
   this->setupSignals();
 }
 
-Numpad::~Numpad()
-{
+Numpad::~Numpad() {
   delete ui;
 }
 

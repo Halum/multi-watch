@@ -30,7 +30,8 @@ SOURCES += \
     utils.cpp \
     digitalclock.cpp \
     numpad.cpp \
-    timer.cpp
+    timer.cpp \
+    clickablelabel.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     utils.h \
     digitalclock.h \
     numpad.h \
-    timer.h
+    timer.h \
+    clickablelabel.h
 
 FORMS += \
     mainwindow.ui \
