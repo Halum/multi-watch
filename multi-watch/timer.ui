@@ -15,56 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-       <widget class="QLabel" name="hourCount">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-          <kerning>true</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>00:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="minuteCount">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-          <kerning>true</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>00:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="secondCount">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-          <kerning>true</kerning>
-         </font>
-        </property>
-        <property name="text">
-         <string>00</string>
-        </property>
-       </widget>
-      </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
   </layout>
  </widget>
